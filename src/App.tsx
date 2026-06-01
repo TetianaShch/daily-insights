@@ -1,10 +1,11 @@
 import "./App.css";
+import InsightCatalog from "./components/InsightCatalog/InsightCatalog";
+import { insights } from "./data/insights";
 
 function App() {
   return (
     <main className="app">
-      <h1>Daily Insights</h1>
-      <p>Інсайти на кожен день з маленькою дією.</p>
+      <InsightCatalog insights={insights} />
     </main>
   );
 }
