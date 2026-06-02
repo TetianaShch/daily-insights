@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { insights } from "../../data/insights";
+import styles from "./InsightPage.module.css";
 
 function InsightPage() {
   const { id } = useParams();
@@ -7,25 +8,39 @@ function InsightPage() {
 
   if (!insight) {
     return (
-      <section>
-        <Link to="/">← Назад</Link>
-        <h1>Інсайт не знайдено</h1>
+      <section className={styles.page}>
+        <Link className={styles.backLink} to="/">
+          ← Назад
+        </Link>
+        <h1 className={styles.title}>Інсайт не знайдено</h1>
       </section>
     );
   }
 
   return (
-    <section>
-      <Link to="/">← Назад</Link>
+    <section className={styles.page}>
+      <Link className={styles.backLink} to="/">
+        ← Назад
+      </Link>
 
-      <h1>{insight.title}</h1>
+      <article className={styles.article}>
+        <div className={styles.keywords}>
+          {insight.keywords.map((keyword) => (
+            <span className={styles.keyword} key={keyword}>
+              {keyword}
+            </span>
+          ))}
+        </div>
 
-      <p>{insight.keywords.join(", ")}</p>
+        <h1 className={styles.title}>{insight.title}</h1>
 
-      <p>{insight.description}</p>
+        <p className={styles.description}>{insight.description}</p>
 
-      <h2>Маленька дія</h2>
-      <p>{insight.todo}</p>
+        <section className={styles.action}>
+          <p className={styles.actionLabel}>Маленька дія</p>
+          <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
+        </section>
+      </article>
     </section>
   );
 }
