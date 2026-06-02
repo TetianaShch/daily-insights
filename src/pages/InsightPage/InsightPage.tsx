@@ -4,7 +4,8 @@ import styles from "./InsightPage.module.css";
 
 function InsightPage() {
   const { id } = useParams();
-  const insight = insights.find((insight) => insight.id === id);
+  const insightId = id === "today" ? "1" : id;
+  const insight = insights.find((insight) => insight.id === insightId);
 
   if (!insight) {
     return (

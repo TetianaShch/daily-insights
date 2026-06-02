@@ -1,15 +1,20 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import InsightCatalog from "./components/InsightCatalog/InsightCatalog";
-import { insights } from "./data/insights";
 import InsightPage from "./pages/InsightPage/InsightPage";
+import { insights } from "./data/insights";
 
 function App() {
   return (
     <main className="app">
       <Routes>
-        <Route path="/" element={<InsightCatalog insights={insights} />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route
+          path="/insights"
+          element={<InsightCatalog insights={insights} />}
+        />
         <Route path="/insight/:id" element={<InsightPage />} />
       </Routes>
     </main>
