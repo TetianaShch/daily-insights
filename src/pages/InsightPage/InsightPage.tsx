@@ -1,11 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { insights } from "../../data/insights";
 import styles from "./InsightPage.module.css";
+import { getTodayInsight } from "../../utils/getTodayInsight";
 
 function InsightPage() {
   const { id } = useParams();
-  const insightId = id === "today" ? "1" : id;
-  const insight = insights.find((insight) => insight.id === insightId);
+  const insight =
+    id === "today"
+      ? getTodayInsight()
+      : insights.find((insight) => insight.id === id);
 
   if (!insight) {
     return (
