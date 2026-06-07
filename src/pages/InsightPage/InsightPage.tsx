@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { insights } from "../../data/insights";
+import { authors } from "../../data/authors";
 import styles from "./InsightPage.module.css";
 import { getTodayInsight } from "../../utils/getTodayInsight";
 
@@ -20,6 +21,8 @@ function InsightPage() {
       </section>
     );
   }
+
+  const author = authors[insight.author];
 
   return (
     <section className={styles.page}>
@@ -44,6 +47,15 @@ function InsightPage() {
           <p className={styles.actionLabel}>Маленька дія</p>
           <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
         </section>
+        <a
+          className={styles.author}
+          href={author.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          — {author.name}
+          <span className={styles.username}> {author.username}</span>
+        </a>
       </article>
     </section>
   );
