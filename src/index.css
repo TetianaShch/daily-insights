@@ -1,15 +1,42 @@
 :root {
-  font-family: system-ui, sans-serif;
-  color: #2f2119;
-  background-color: #fbf6ef;
+  /* Colors */
+  --color-background: #fbf6ef;
+  --color-surface: #fffaf4;
+  --color-surface-soft: #efe2d6;
+
+  --color-text: #2f2119;
+  --color-text-muted: #7d5f4d;
+  --color-text-secondary: #4b4038;
+
+  --color-accent: #9a735c;
+  --color-accent-dark: #3a261c;
+
+  --color-border: #e2d5c8;
+  --color-border-hover: #d6c4b5;
+
+  --color-highlight: #c8a88d;
+
+  /* Radius */
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-card: 24px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.2s ease;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-family: system-ui, sans-serif;
+}
+
 body {
   margin: 0;
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
 button,

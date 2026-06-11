@@ -17,7 +17,7 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
   return (
     <section className={styles.catalog}>
       <Link className={styles.backLink} to="/">
-        ← На головну
+        ← Назад
       </Link>
       <h2>Щоденні інсайти</h2>
       <p className={styles.subtitle}>
@@ -28,22 +28,25 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
           <li key={insight.id} className={styles.card}>
             <Link className={styles.cardLink} to={`/insight/${insight.id}`}>
               <h3 className={styles.cardTitle}>{insight.title}</h3>
-              <p className={styles.keywords}>
-                {insight.keywords.map((keyword, index) => (
-                  <Link
-                    key={keyword}
-                    to={`/insights?tag=${encodeURIComponent(keyword)}`}
-                    className={
-                      keyword === activeKeyword
-                        ? styles.activeKeyword
-                        : styles.keywordLink
-                    }
-                  >
-                    {keyword}
-                    {index < insight.keywords.length - 1 ? ", " : ""}
-                  </Link>
-                ))}
-              </p>
+            </Link>
+
+            <p className={styles.keywords}>
+              {insight.keywords.map((keyword) => (
+                <Link
+                  key={keyword}
+                  to={`/insights?tag=${encodeURIComponent(keyword)}`}
+                  className={
+                    keyword === activeKeyword
+                      ? styles.activeKeyword
+                      : styles.keywordLink
+                  }
+                >
+                  {keyword}
+                </Link>
+              ))}
+            </p>
+
+            <Link className={styles.cardLink} to={`/insight/${insight.id}`}>
               <p className={styles.description}>
                 {insight.description.slice(0, 100)}...
               </p>

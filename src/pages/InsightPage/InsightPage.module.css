@@ -7,16 +7,16 @@
 .backLink {
   display: inline-flex;
   margin-bottom: 36px;
-  color: #9a735c;
+  color: var(--color-accent);
   font-size: 15px;
   text-decoration: none;
 }
 
 .article {
   padding: 36px;
-  border: 1px solid #e5ddd3;
-  border-radius: 32px;
-  background: #fffaf4;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
 }
 
 .keywords {
@@ -28,17 +28,29 @@
 
 .keyword {
   padding: 7px 12px;
-  border-radius: 999px;
-  background: #f1e5da;
-  color: #7d5f4d;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-soft);
+  color: var(--color-text-muted);
   font-size: 13px;
   font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.keyword:hover,
+.keyword:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-surface);
+  text-decoration: none;
 }
 
 .title {
   max-width: 760px;
   margin: 0 0 32px;
-  color: #2d241f;
+  color: var(--color-text);
   font-size: clamp(36px, 6vw, 64px);
   line-height: 0.98;
   letter-spacing: -0.05em;
@@ -48,7 +60,7 @@
 .description {
   margin: 0;
   white-space: pre-line;
-  color: #4b4038;
+  color: var(--color-text-secondary);
   font-size: 20px;
   line-height: 1.75;
 }
@@ -57,14 +69,14 @@
   margin-top: 40px;
   padding: 28px;
   border-radius: 28px;
-  background: #faf2ea;
-  border-left: 4px solid #c8a88d;
-  color: #4b4038;
+  background: var(--color-background);
+  border-left: 4px solid var(--color-highlight);
+  color: var(--color-text-secondary);
 }
 
 .actionLabel {
   margin: 0 0 12px;
-  color: #8a6a55;
+  color: var(--color-accent);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -81,7 +93,7 @@
 .author {
   display: block;
   margin-top: 28px;
-  color: #9a735c;
+  color: var(--color-accent);
   text-align: right;
   text-decoration: none;
   font-size: 14px;
@@ -93,23 +105,4 @@
 
 .username {
   opacity: 0.7;
-}
-
-@media (max-width: 640px) {
-  .article {
-    padding: 24px;
-    border-radius: 24px;
-  }
-
-  .title {
-    margin-bottom: 24px;
-  }
-
-  .description {
-    font-size: 18px;
-  }
-
-  .action {
-    padding: 22px;
-  }
 }

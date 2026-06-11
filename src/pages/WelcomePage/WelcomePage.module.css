@@ -10,13 +10,13 @@
 
 .flower {
   margin-bottom: 24px;
-  color: #9a735c;
+  color: var(--color-accent);
   font-size: 72px;
 }
 
 .title {
   margin: 0;
-  color: #2d241f;
+  color: var(--color-text);
   font-size: clamp(48px, 8vw, 84px);
   line-height: 0.95;
   letter-spacing: -0.06em;
@@ -26,7 +26,7 @@
 .subtitle {
   max-width: 420px;
   margin: 24px 0 0;
-  color: #7d5f4d;
+  color: var(--color-text-muted);
   font-size: 18px;
   line-height: 1.6;
 }
@@ -40,28 +40,51 @@
 
 .primaryLink,
 .secondaryLink {
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   font-size: 16px;
 }
 
 .primaryLink {
   padding: 14px 24px;
-  background: #3a261c;
-  color: #fffaf4;
+  background: var(--color-accent-dark);
+  color: var(--color-surface);
 
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .primaryLink:hover,
 .primaryLink:focus-visible {
-  background: #fffaf4;
-  color: #3a261c;
-  outline: 1px solid #3a261c;
+  background: var(--color-surface);
+  color: var(--color-accent-dark);
+  outline: 1px solid var(--color-accent-dark);
 }
 
 .secondaryLink {
-  color: #8a6a55;
+  display: inline-block;
+
+  padding: 12px 20px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+
+  background: var(--color-surface);
+  color: var(--color-accent);
+
+  text-decoration: none;
+  font-size: 15px;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.secondaryLink:hover,
+.secondaryLink:focus-visible {
+  background: var(--color-surface-soft);
+  color: var(--color-accent-dark);
+  border-color: var(--color-border-hover);
 }
