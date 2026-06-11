@@ -49,6 +49,17 @@
   padding: 14px 24px;
   background: #3a261c;
   color: #fffaf4;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.primaryLink:hover,
+.primaryLink:focus-visible {
+  background: #fffaf4;
+  color: #3a261c;
+  outline: 1px solid #3a261c;
 }
 
 .secondaryLink {

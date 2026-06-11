@@ -8,6 +8,18 @@
   margin-bottom: 48px;
 }
 
+.backLink {
+  display: inline-block;
+  margin-bottom: 24px;
+
+  color: #9a735c;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
 .title {
   margin: 0 0 40px;
   font-size: 56px;

@@ -16,6 +16,9 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
 
   return (
     <section className={styles.catalog}>
+      <Link className={styles.backLink} to="/">
+        ← На головну
+      </Link>
       <h2>Щоденні інсайти</h2>
       <p className={styles.subtitle}>
         Наші інсайти, які можуть стати й твоїми.
