@@ -1,12 +1,19 @@
 import type { Insight } from "../../types/insight";
 import styles from "./InsightCatalog.module.css";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 type InsightCatalogProps = {
   insights: Insight[];
 };
 
 function InsightCatalog({ insights }: InsightCatalogProps) {
+  const [searchParams] = useSearchParams();
+  const activeKeyword = searchParams.get("tag");
+
+  const filteredInsights = activeKeyword
+    ? insights.filter((insight) => insight.keywords.includes(activeKeyword))
+    : insights;
+
   return (
     <section className={styles.catalog}>
       <h2>Щоденні інсайти</h2>
@@ -14,11 +21,26 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
         Наші інсайти, які можуть стати й твоїми.
       </p>
       <ul className={styles.list}>
-        {insights.map((insight) => (
+        {filteredInsights.map((insight) => (
           <li key={insight.id} className={styles.card}>
             <Link className={styles.cardLink} to={`/insight/${insight.id}`}>
               <h3 className={styles.cardTitle}>{insight.title}</h3>
-              <p className={styles.keywords}>{insight.keywords.join(", ")}</p>
+              <p className={styles.keywords}>
+                {insight.keywords.map((keyword, index) => (
+                  <Link
+                    key={keyword}
+                    to={`/insights?tag=${encodeURIComponent(keyword)}`}
+                    className={
+                      keyword === activeKeyword
+                        ? styles.activeKeyword
+                        : styles.keywordLink
+                    }
+                  >
+                    {keyword}
+                    {index < insight.keywords.length - 1 ? ", " : ""}
+                  </Link>
+                ))}
+              </p>
               <p className={styles.description}>
                 {insight.description.slice(0, 100)}...
               </p>

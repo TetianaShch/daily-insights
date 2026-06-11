@@ -33,9 +33,13 @@ function InsightPage() {
       <article className={styles.article}>
         <div className={styles.keywords}>
           {insight.keywords.map((keyword) => (
-            <span className={styles.keyword} key={keyword}>
+            <Link
+              className={styles.keyword}
+              key={keyword}
+              to={`/insights?tag=${encodeURIComponent(keyword)}`}
+            >
               {keyword}
-            </span>
+            </Link>
           ))}
         </div>
 
