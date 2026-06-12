@@ -3,6 +3,7 @@ import { insights } from "../../data/insights";
 import { authors } from "../../data/authors";
 import styles from "./InsightPage.module.css";
 import { getTodayInsight } from "../../utils/getTodayInsight";
+import FlowerBurst from "../../components/FlowerBurst/FlowerBurst";
 
 function InsightPage() {
   const { id } = useParams();
@@ -48,7 +49,10 @@ function InsightPage() {
         <p className={styles.description}>{insight.description}</p>
 
         <section className={styles.action}>
-          <p className={styles.actionLabel}>Маленька дія</p>
+          <p className={styles.actionLabel}>
+            <FlowerBurst />
+            Маленька дія
+          </p>
           <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
         </section>
         <a

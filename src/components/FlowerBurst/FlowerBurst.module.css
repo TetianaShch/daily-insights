@@ -1,0 +1,64 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.flower {
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  color: var(--color-accent);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.petal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  color: var(--color-accent);
+
+  pointer-events: none;
+
+  animation: bloom 1s ease forwards;
+}
+
+.petal1 {
+  --x: -40px;
+  --y: -30px;
+}
+
+.petal2 {
+  --x: 40px;
+  --y: -30px;
+}
+
+.petal3 {
+  --x: 0px;
+  --y: -50px;
+}
+
+.petal4 {
+  --x: -30px;
+  --y: 20px;
+}
+
+.petal5 {
+  --x: 30px;
+  --y: 20px;
+}
+
+@keyframes bloom {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
+      scale(1.4);
+  }
+}

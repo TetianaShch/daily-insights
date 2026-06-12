@@ -65,6 +65,19 @@
   line-height: 1.75;
 }
 
+.actionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0 0 12px;
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .action {
   margin-top: 40px;
   padding: 28px;
