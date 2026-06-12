@@ -1,6 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import InsightCatalog from "./components/InsightCatalog/InsightCatalog";
 import InsightPage from "./pages/InsightPage/InsightPage";
@@ -9,6 +11,7 @@ import { insights } from "./data/insights";
 function App() {
   return (
     <main className="app">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route
