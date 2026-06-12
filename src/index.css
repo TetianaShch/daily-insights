@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 :root {
+  /* Fonts */
+  --font-title: "DM Serif Display", serif;
+  --font-body: "DM Serif Display", serif;
+  --font-author: "Dancing Script", cursive;
   /* Colors */
   --color-background: #fbf6ef;
   --color-surface: #fffaf4;
@@ -6,6 +11,7 @@
 
   --color-text: #2f2119;
   --color-text-muted: #7d5f4d;
+
   --color-text-secondary: #4b4038;
 
   --color-accent: #9a735c;
@@ -30,7 +36,7 @@
 }
 
 html {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-body), serif;
 }
 
 body {
