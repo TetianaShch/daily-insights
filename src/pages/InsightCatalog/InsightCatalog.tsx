@@ -24,7 +24,7 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
         </Link>
 
         <Link className={styles.todayLink} to="/insight/today">
-          Сьогоднішній інсайт
+          Інсат дня
           <FlowerIcon />
         </Link>
       </div>
