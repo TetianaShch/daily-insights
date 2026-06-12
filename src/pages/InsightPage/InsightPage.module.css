@@ -6,9 +6,17 @@
 
 .backLink {
   display: inline-flex;
-  margin-bottom: 36px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
   color: var(--color-accent);
   font-size: 15px;
+  text-decoration: none;
+}
+
+.backLink:hover,
+.backLink:focus-visible {
+  color: var(--color-accent-dark);
   text-decoration: none;
 }
 
@@ -51,9 +59,11 @@
   max-width: 760px;
   margin: 0 0 32px;
   color: var(--color-text);
-  font-size: clamp(28px, 6vw, 50px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+
+  font-size: clamp(28px, 4.5vw, 40px);
+
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   font-weight: 500;
 }
 
@@ -85,15 +95,14 @@
   background: var(--color-background);
   border-left: 4px solid var(--color-highlight);
   color: var(--color-text-secondary);
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
-.actionLabel {
-  margin: 0 0 12px;
-  color: var(--color-accent);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.action:hover {
+  transform: translateY(-3px);
 }
 
 .action p {

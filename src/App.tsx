@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
-import InsightCatalog from "./components/InsightCatalog/InsightCatalog";
+import InsightCatalog from "./pages/InsightCatalog/InsightCatalog";
 import InsightPage from "./pages/InsightPage/InsightPage";
 import { insights } from "./data/insights";
 

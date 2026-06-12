@@ -4,6 +4,7 @@ import { authors } from "../../data/authors";
 import styles from "./InsightPage.module.css";
 import { getTodayInsight } from "../../utils/getTodayInsight";
 import FlowerBurst from "../../components/FlowerBurst/FlowerBurst";
+import FlowerIcon from "../../components/FlowerIcon/FlowerIcon";
 
 function InsightPage() {
   const { id } = useParams();
@@ -15,8 +16,9 @@ function InsightPage() {
   if (!insight) {
     return (
       <section className={styles.page}>
-        <Link className={styles.backLink} to="/">
-          ← Назад
+        <Link className={styles.backLink} to="/insights">
+          <FlowerIcon />
+          Назад
         </Link>
         <h1 className={styles.title}>Інсайт не знайдено</h1>
       </section>
@@ -27,8 +29,9 @@ function InsightPage() {
 
   return (
     <section className={styles.page}>
-      <Link className={styles.backLink} to="/">
-        ← Назад
+      <Link className={styles.backLink} to="/insights">
+        <FlowerIcon />
+        Назад
       </Link>
 
       <article className={styles.article}>

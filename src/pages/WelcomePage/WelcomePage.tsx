@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./WelcomePage.module.css";
+import FlowerIcon from "../../components/FlowerIcon/FlowerIcon";
 
 function WelcomePage() {
   return (
     <section className={styles.page}>
-      <div className={styles.flower}>✿</div>
+      <div className={styles.flower}>
+        <FlowerIcon />
+      </div>
 
       <h1 className={styles.title}>Щоденні інсайти</h1>
 

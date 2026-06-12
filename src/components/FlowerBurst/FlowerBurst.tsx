@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./FlowerBurst.module.css";
+import FlowerIcon from "../FlowerIcon/FlowerIcon";
 
 function FlowerBurst() {
   const [isBlooming, setIsBlooming] = useState(false);
@@ -15,7 +16,7 @@ function FlowerBurst() {
   return (
     <span className={styles.wrapper}>
       <button className={styles.flower} onClick={handleClick} type="button">
-        ✿
+        <FlowerIcon />
       </button>
 
       {isBlooming && (
