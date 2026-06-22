@@ -35,38 +35,41 @@ function InsightPage() {
       </Link>
 
       <article className={styles.article}>
-        <div className={styles.keywords}>
-          {insight.keywords.map((keyword) => (
-            <Link
-              className={styles.keyword}
-              key={keyword}
-              to={`/insights?tag=${encodeURIComponent(keyword)}`}
-            >
-              {keyword}
-            </Link>
-          ))}
+        <div className={styles.articleContent}>
+          <div className={styles.keywords}>
+            {insight.keywords.map((keyword) => (
+              <Link
+                className={styles.keyword}
+                key={keyword}
+                to={`/insights?tag=${encodeURIComponent(keyword)}`}
+              >
+                {keyword}
+              </Link>
+            ))}
+          </div>
+
+          <h1 className={styles.title}>{insight.title}</h1>
+
+          <p className={styles.description}>{insight.description}</p>
+
+          <section className={styles.action}>
+            <p className={styles.actionLabel}>
+              <FlowerBurst />
+              Маленька дія
+            </p>
+            <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
+          </section>
+
+          <a
+            className={styles.author}
+            href={author.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            — {author.name}
+            <span className={styles.username}> {author.username}</span>
+          </a>
         </div>
-
-        <h1 className={styles.title}>{insight.title}</h1>
-
-        <p className={styles.description}>{insight.description}</p>
-
-        <section className={styles.action}>
-          <p className={styles.actionLabel}>
-            <FlowerBurst />
-            Маленька дія
-          </p>
-          <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
-        </section>
-        <a
-          className={styles.author}
-          href={author.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          — {author.name}
-          <span className={styles.username}> {author.username}</span>
-        </a>
       </article>
     </section>
   );
