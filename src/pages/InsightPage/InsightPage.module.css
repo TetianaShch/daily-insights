@@ -120,11 +120,14 @@
   line-height: 1.65;
 }
 
+.authorRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+
 .author {
-  display: block;
-  margin-top: 28px;
   color: var(--color-accent);
-  text-align: right;
   text-decoration: none;
   font-family: var(--font-author);
   font-size: 14px;

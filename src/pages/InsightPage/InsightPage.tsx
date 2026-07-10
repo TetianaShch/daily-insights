@@ -5,6 +5,7 @@ import styles from "./InsightPage.module.css";
 import { getTodayInsight } from "../../utils/getTodayInsight";
 import FlowerBurst from "../../components/FlowerBurst/FlowerBurst";
 import FlowerIcon from "../../components/FlowerIcon/FlowerIcon";
+import Reflections from "../../components/Reflections/Reflections";
 
 function InsightPage() {
   const { id } = useParams();
@@ -49,7 +50,17 @@ function InsightPage() {
           </div>
 
           <h1 className={styles.title}>{insight.title}</h1>
-
+          <div className={styles.authorRow}>
+            <a
+              className={styles.author}
+              href={author.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              — {author.name}
+              <span className={styles.username}> {author.username}</span>
+            </a>
+          </div>
           <p className={styles.description}>{insight.description}</p>
 
           <section className={styles.action}>
@@ -59,16 +70,7 @@ function InsightPage() {
             </p>
             <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
           </section>
-
-          <a
-            className={styles.author}
-            href={author.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            — {author.name}
-            <span className={styles.username}> {author.username}</span>
-          </a>
+          <Reflections />
         </div>
       </article>
     </section>
