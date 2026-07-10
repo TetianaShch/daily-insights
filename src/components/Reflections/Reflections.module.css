@@ -1,14 +1,35 @@
 .reflections {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border-color);
+  margin-top: 18px;
+  border-top: 1px solid var(--color-border);
 }
 
 .title {
-  margin-bottom: 16px;
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-size: 28px;
+  font-weight: 500;
 }
 
-.empty {
-  color: var(--secondary-text-color);
-  line-height: 1.7;
+.button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font: inherit;
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.button:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }

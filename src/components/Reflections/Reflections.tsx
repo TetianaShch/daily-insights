@@ -1,6 +1,7 @@
 import styles from "./Reflections.module.css";
 import { useState } from "react";
 import ReflectionForm from "../ReflectionForm/ReflectionForm";
+import Modal from "../Modal/Modal";
 
 function Reflections() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -8,8 +9,6 @@ function Reflections() {
   return (
     <section className={styles.reflections}>
       <h2>Роздуми</h2>
-
-      <p>Яку думку викликав у вас цей інсайт?</p>
 
       {!isFormOpen && (
         <button
@@ -21,7 +20,11 @@ function Reflections() {
         </button>
       )}
 
-      {isFormOpen && <ReflectionForm onCancel={() => setIsFormOpen(false)} />}
+      {isFormOpen && (
+        <Modal onClose={() => setIsFormOpen(false)}>
+          <ReflectionForm onCancel={() => setIsFormOpen(false)} />
+        </Modal>
+      )}
     </section>
   );
 }

@@ -32,7 +32,7 @@
 .articleContent {
   height: 100%;
   overflow-y: auto;
-  padding: 26px;
+  padding: 18px;
 }
 
 .keywords {
@@ -65,7 +65,7 @@
 
 .title {
   max-width: 760px;
-  margin: 0 0 32px;
+  margin: 0 0 8px;
   color: var(--color-text);
 
   font-size: clamp(28px, 4.5vw, 40px);
