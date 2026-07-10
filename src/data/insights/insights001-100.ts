@@ -1,6 +1,7 @@
-import type { Insight } from '../types/insight'
+// insights 001-100.ts
+import type { Insight } from '../../types/insight';
 
-export const insights: Insight[] = [
+export const insights001To100: Insight[] = [
     {
         id: '1',
         title: 'Тебе будуть зраджувати, допоки ти зраджуєш собі',
@@ -3094,4 +3095,4 @@ export const insights: Insight[] = [
 
 ]
 
-export default insights;
+export default insights001To100;

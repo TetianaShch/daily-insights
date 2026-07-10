@@ -6,7 +6,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import InsightCatalog from "./pages/InsightCatalog/InsightCatalog";
 import InsightPage from "./pages/InsightPage/InsightPage";
-import { insights } from "./data/insights";
+import { insights } from "./data/insights/index";
 
 function App() {
   return (

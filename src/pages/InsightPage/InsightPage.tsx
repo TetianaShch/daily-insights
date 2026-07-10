@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { insights } from "../../data/insights";
+import { insights } from "../../data/insights/index";
 import { authors } from "../../data/authors";
 import styles from "./InsightPage.module.css";
 import { getTodayInsight } from "../../utils/getTodayInsight";

@@ -1,4 +1,4 @@
-import { insights } from "../data/insights";
+import { insights } from "../data/insights/index";
 
 export function getTodayInsight() {
     const startDate = new Date("2025-06-03");
