@@ -33,12 +33,15 @@ const validationSchema = Yup.object({
 
 function ReflectionForm({ onCancel }: { onCancel: () => void }) {
   const handleSubmit = (
-    values: ReflectionFormValues,
+    _values: ReflectionFormValues,
     { resetForm }: { resetForm: () => void },
   ) => {
-    console.log(values);
+    alert(
+      "🌸 Розділ «Роздуми» ще в розробці.\n\nНезабаром ви зможете ділитися своїми думками.",
+    );
 
     resetForm();
+    onCancel();
   };
 
   return (
