@@ -1,4 +1,6 @@
-export const authors = {
+import type { Author, AuthorId } from "../types/author";
+
+export const authors: Record<AuthorId, Author> = {
     tetiana: {
         name: "Тетяна",
         username: "@tet_booktrovert",

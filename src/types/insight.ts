@@ -1,7 +1,4 @@
-import { authors } from "../data/authors";
-
-export type AuthorId = keyof typeof authors;
-
+import type { AuthorId } from "./author";
 export interface Insight {
     id: string;
     title: string;
