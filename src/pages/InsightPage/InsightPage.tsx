@@ -70,7 +70,7 @@ function InsightPage() {
             </p>
             <p>{insight.todo.replace("Маленька дія:", "").trim()}</p>
           </section>
-          <Reflections />
+          <Reflections insightId={insight.id} />
         </div>
       </article>
     </section>
