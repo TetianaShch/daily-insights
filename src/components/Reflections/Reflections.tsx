@@ -22,7 +22,6 @@ function Reflections({ insightId }: ReflectionsProps) {
         setError("");
 
         const data = await fetchReflections(insightId);
-
         setReflections(data);
       } catch {
         setError("Не вдалося завантажити роздуми.");
@@ -33,6 +32,10 @@ function Reflections({ insightId }: ReflectionsProps) {
 
     loadReflections();
   }, [insightId]);
+
+  const handleCreated = (reflection: Reflection) => {
+    setReflections((currentReflections) => [reflection, ...currentReflections]);
+  };
 
   return (
     <section className={styles.reflections}>
@@ -46,6 +49,15 @@ function Reflections({ insightId }: ReflectionsProps) {
         <p>Поки що роздумів немає.</p>
       )}
 
+      {!isLoading &&
+        !error &&
+        reflections.map((reflection) => (
+          <article key={reflection.id}>
+            <strong>{reflection.nickname}</strong>
+            <p>{reflection.text}</p>
+          </article>
+        ))}
+
       {!isFormOpen && (
         <button
           className={styles.button}
@@ -58,7 +70,11 @@ function Reflections({ insightId }: ReflectionsProps) {
 
       {isFormOpen && (
         <Modal onClose={() => setIsFormOpen(false)}>
-          <ReflectionForm onCancel={() => setIsFormOpen(false)} />
+          <ReflectionForm
+            insightId={insightId}
+            onCancel={() => setIsFormOpen(false)}
+            onCreated={handleCreated}
+          />
         </Modal>
       )}
     </section>
