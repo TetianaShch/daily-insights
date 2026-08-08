@@ -66,6 +66,10 @@ export const createReflection = async ({
         throw new Error(data.error);
     }
 
+    if (!data?.reflection) {
+        throw new Error('Невалідна відповідь від сервера');
+    }
+
     return mapReflection(data.reflection as ReflectionRow);
 };
 

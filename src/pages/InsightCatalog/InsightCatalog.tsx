@@ -39,7 +39,9 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
               <h3 className={styles.cardTitle}>{insight.title}</h3>
 
               <p className={styles.description}>
-                {insight.description.slice(0, 100)}...
+                {insight.description.length > 100
+                  ? `${insight.description.slice(0, 100)}...`
+                  : insight.description}
               </p>
             </Link>
 

@@ -28,6 +28,10 @@ function InsightPage() {
 
   const author = authors[insight.author];
 
+  if (!author) {
+    return null;
+  }
+
   return (
     <section className={styles.page}>
       <Link className={styles.backLink} to="/insights">
