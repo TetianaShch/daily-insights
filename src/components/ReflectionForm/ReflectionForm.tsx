@@ -117,6 +117,10 @@ function ReflectionForm({
                 autoComplete="off"
               />
 
+              <p className={styles.hint}>
+                Ключ доступу можна отримати у власника Daily Insights.
+              </p>
+
               <ErrorMessage
                 className={styles.error}
                 name="accessKey"
