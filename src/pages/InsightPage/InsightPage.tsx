@@ -1,17 +1,20 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import CalendarStrip from "../../components/CalendarStrip/CalendarStrip";
 import { insights } from "../../data/insights/index";
 import { authors } from "../../data/authors";
 import styles from "./InsightPage.module.css";
-import { getTodayInsight } from "../../utils/getTodayInsight";
+import { getInsightByDate } from "../../utils/getInsightByDate";
 import FlowerBurst from "../../components/FlowerBurst/FlowerBurst";
 import FlowerIcon from "../../components/FlowerIcon/FlowerIcon";
 import Reflections from "../../components/Reflections/Reflections";
 
 function InsightPage() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const { id } = useParams();
   const insight =
     id === "today"
-      ? getTodayInsight()
+      ? getInsightByDate(selectedDate)
       : insights.find((insight) => insight.id === id);
 
   if (!insight) {
@@ -38,7 +41,10 @@ function InsightPage() {
         <FlowerIcon />
         Назад
       </Link>
-
+      <CalendarStrip
+        selectedDate={selectedDate}
+        onDateSelect={setSelectedDate}
+      />
       <article className={styles.article}>
         <div className={styles.articleContent}>
           <div className={styles.keywords}>

@@ -1,0 +1,29 @@
+.calendar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.day[aria-pressed="true"] {
+  border-color: #856f5b;
+  background-color: #f2ebe4;
+  font-weight: 600;
+}
+
+.day:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

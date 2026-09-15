@@ -18,7 +18,4 @@ export function getInsightByDate(date: Date) {
     ];
 }
 
-export function getTodayInsight() {
-    return getInsightByDate(new Date());
-}
 
