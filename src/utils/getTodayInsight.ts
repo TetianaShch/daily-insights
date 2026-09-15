@@ -1,11 +1,9 @@
 import { insights } from "../data/insights/index";
 
-export function getTodayInsight() {
+export function getInsightByDate(date: Date) {
     const startDate = new Date("2025-06-03");
 
-    const today = new Date();
-
-    const diffTime = today.getTime() - startDate.getTime();
+    const diffTime = date.getTime() - startDate.getTime();
 
     const daysPassed = Math.floor(
         diffTime / (1000 * 60 * 60 * 24)
@@ -19,3 +17,8 @@ export function getTodayInsight() {
         daysPassed % sortedInsights.length
     ];
 }
+
+export function getTodayInsight() {
+    return getInsightByDate(new Date());
+}
+
