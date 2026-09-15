@@ -12,10 +12,10 @@ type CalendarStripProps = {
 function CalendarStrip({ selectedDate, onDateSelect }: CalendarStripProps) {
   const today = new Date();
 
-  const days = Array.from({ length: 5 }, (_, index) => {
+  const days = Array.from({ length: 7 }, (_, index) => {
     const date = new Date(today);
 
-    date.setDate(today.getDate() + index - 2);
+    date.setDate(today.getDate() + index - 3);
 
     return date;
   });
