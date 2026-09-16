@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
+import Layout from "./components/Layout/Layout";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
@@ -10,17 +10,19 @@ import { insights } from "./data/insights/index";
 
 function App() {
   return (
-    <main className="app">
+    <>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route
-          path="/insights"
-          element={<InsightCatalog insights={insights} />}
-        />
-        <Route path="/insight/:id" element={<InsightPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<WelcomePage />} />
+          <Route
+            path="/insights"
+            element={<InsightCatalog insights={insights} />}
+          />
+          <Route path="/insight/:id" element={<InsightPage />} />
+        </Route>
       </Routes>
-    </main>
+    </>
   );
 }
 
