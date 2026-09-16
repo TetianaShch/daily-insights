@@ -1,38 +1,7 @@
 .catalog {
   max-width: 860px;
   margin: 0 auto;
-  padding: 28px 20px 72px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 24px;
-}
-
-.backLink,
-.todayLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 15px;
-
-  color: var(--color-accent);
-  text-decoration: none;
-
-  transition:
-    color var(--transition-fast),
-    opacity var(--transition-fast);
-}
-
-.backLink:hover,
-.backLink:focus-visible,
-.todayLink:hover,
-.todayLink:focus-visible {
-  color: var(--color-accent-dark);
-  text-decoration: none;
+  padding: 18px 20px 72px;
 }
 
 .title {
@@ -47,6 +16,11 @@
   margin: 4px 0 24px;
   font-size: 16px;
   color: var(--color-text-muted);
+}
+
+.title,
+.subtitle {
+  text-align: center;
 }
 
 .list {
@@ -68,6 +42,7 @@
   transition:
     transform var(--transition-fast),
     border-color var(--transition-fast);
+  animation: cardReveal 0.4s ease-out;
 }
 
 .card:hover {
@@ -134,4 +109,45 @@
   color: var(--color-text-muted);
   font-size: 16px;
   line-height: 1.55;
+}
+.loadMoreButton {
+  display: block;
+  min-width: 200px;
+  margin: 32px auto 0;
+  padding: 14px 24px;
+
+  color: var(--color-accent-dark);
+  background-color: transparent;
+  border: 1px solid var(--color-border-hover);
+  border-radius: var(--radius-pill);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.loadMoreButton:hover {
+  color: var(--color-surface);
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

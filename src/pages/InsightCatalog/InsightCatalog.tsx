@@ -1,7 +1,9 @@
-import type { Insight } from "../../types/insight";
-import styles from "./InsightCatalog.module.css";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import FlowerIcon from "../../components/FlowerIcon/FlowerIcon";
+
+import type { Insight } from "../../types/insight";
+
+import styles from "./InsightCatalog.module.css";
 
 type InsightCatalogProps = {
   insights: Insight[];
@@ -11,29 +13,31 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
   const [searchParams] = useSearchParams();
   const activeKeyword = searchParams.get("tag");
 
+  const [pagination, setPagination] = useState<{
+    tag: string | null;
+    count: number;
+  }>({
+    tag: null,
+    count: 4,
+  });
+
   const filteredInsights = activeKeyword
     ? insights.filter((insight) => insight.keywords.includes(activeKeyword))
     : insights;
+  const visibleCount = pagination.tag === activeKeyword ? pagination.count : 4;
+
+  const visibleInsights = filteredInsights.slice(0, visibleCount);
+
+  const hasMore = visibleCount < filteredInsights.length;
 
   return (
     <section className={styles.catalog}>
-      <div className={styles.navigation}>
-        <Link className={styles.backLink} to="/">
-          <FlowerIcon />
-          На головну
-        </Link>
-
-        <Link className={styles.todayLink} to="/insight/today">
-          Інсайт дня
-          <FlowerIcon />
-        </Link>
-      </div>
       <h2 className={styles.title}>Щоденні інсайти</h2>
       <p className={styles.subtitle}>
         Наші інсайти, які можуть стати й твоїми.
       </p>
       <ul className={styles.list}>
-        {filteredInsights.map((insight) => (
+        {visibleInsights.map((insight) => (
           <li key={insight.id} className={styles.card}>
             <Link className={styles.cardContent} to={`/insight/${insight.id}`}>
               <h3 className={styles.cardTitle}>{insight.title}</h3>
@@ -63,6 +67,20 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
           </li>
         ))}
       </ul>
+      {hasMore && (
+        <button
+          className={styles.loadMoreButton}
+          type="button"
+          onClick={() =>
+            setPagination({
+              tag: activeKeyword,
+              count: visibleCount + 4,
+            })
+          }
+        >
+          Показати ще
+        </button>
+      )}
     </section>
   );
 }

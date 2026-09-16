@@ -1,21 +1,30 @@
 import { insights } from "../data/insights/index";
 
-export function getInsightByDate(date: Date) {
-    const startDate = new Date("2025-06-03");
+const DAY_IN_MS = 1000 * 60 * 60 * 24;
 
-    const diffTime = date.getTime() - startDate.getTime();
+export function getInsightByDate(date: Date) {
+    const startDate = Date.UTC(2025, 5, 3);
+
+    const selectedDate = Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate()
+    );
 
     const daysPassed = Math.floor(
-        diffTime / (1000 * 60 * 60 * 24)
+        (selectedDate - startDate) / DAY_IN_MS
     );
 
     const sortedInsights = [...insights].sort(
         (a, b) => Number(a.id) - Number(b.id)
     );
 
-    return sortedInsights[
-        daysPassed % sortedInsights.length
-    ];
+    const insightIndex =
+        ((daysPassed % sortedInsights.length) + sortedInsights.length) %
+        sortedInsights.length;
+
+    return sortedInsights[insightIndex];
 }
+
 
 
