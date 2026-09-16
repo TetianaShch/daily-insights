@@ -1,40 +1,87 @@
 .calendar {
-  width: min(100%, 900px);
-  margin: 32px auto;
-
   display: grid;
-  grid-template-columns: repeat(7, minmax(64px, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 8px;
 
-  overflow-x: auto;
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.month {
+  margin: 0 0 8px;
+  color: var(--color-text-muted);
+  font-size: 18px;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .day {
   width: 100%;
-  min-height: 88px;
+  min-height: 52px;
+  padding: 10px 14px;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 12px;
 
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: 20px;
+  color: var(--color-text-secondary);
   background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 14px;
 
   font: inherit;
   cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.day:hover:not(:disabled) {
+  color: var(--color-accent-dark);
+  background-color: var(--color-surface-soft);
+  transform: translateX(3px);
 }
 
 .day[aria-pressed="true"] {
-  border-color: #856f5b;
-  background-color: #f2ebe4;
+  color: var(--color-surface);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
   font-weight: 600;
 }
 
 .day:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .calendar {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .day {
+    min-height: 64px;
+    padding: 6px 2px;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    font-size: 12px;
+  }
+
+  .day:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
 }

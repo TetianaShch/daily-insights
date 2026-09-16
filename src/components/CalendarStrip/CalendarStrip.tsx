@@ -9,6 +9,10 @@ type CalendarStripProps = {
   onDateSelect: (date: Date) => void;
 };
 
+const monthFormatter = new Intl.DateTimeFormat("uk-UA", {
+  month: "long",
+});
+
 function CalendarStrip({ selectedDate, onDateSelect }: CalendarStripProps) {
   const today = new Date();
 
@@ -22,6 +26,7 @@ function CalendarStrip({ selectedDate, onDateSelect }: CalendarStripProps) {
 
   return (
     <div className={styles.calendar}>
+      <p className={styles.month}>{monthFormatter.format(selectedDate)}</p>
       {days.map((date) => (
         <button
           className={styles.day}
