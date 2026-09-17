@@ -1,12 +1,12 @@
 .sidebar {
-  position: sticky;
-  top: 100px;
-  align-self: start;
+  position: static;
   min-width: 0;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 901px) {
   .sidebar {
-    position: static;
+    position: sticky;
+    top: 100px;
+    align-self: start;
   }
 }

@@ -143,22 +143,23 @@
 }
 
 .dailyPage {
-  max-width: 1200px;
+  max-width: 860px;
 }
 
 .dailyLayout {
   display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: 32px;
+  gap: 16px;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 901px) {
   .dailyPage {
-    max-width: 860px;
+    max-width: 1200px;
   }
 
   .dailyLayout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 32px;
   }
 }
