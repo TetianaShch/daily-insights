@@ -48,11 +48,6 @@ function InsightPage() {
     <section
       className={`${styles.page} ${isTodayPage ? styles.dailyPage : ""}`}
     >
-      <Link className={styles.backLink} to="/insights">
-        <FlowerIcon />
-        Назад
-      </Link>
-
       <div className={isTodayPage ? styles.dailyLayout : undefined}>
         {isTodayPage && (
           <Sidebar selectedDate={selectedDate} onDateSelect={setSelectedDate} />

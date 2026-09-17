@@ -1,22 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const isCatalogPage = pathname === "/insights";
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <NavLink to="/" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           Daily Insights
-        </NavLink>
+        </Link>
         <nav className={styles.navigation}>
-          <NavLink
-            to="/insights"
-            className={({ isActive }) =>
-              `${styles.link} ${isActive ? styles.active : ""}`
-            }
+          <Link
+            to={isCatalogPage ? "/insight/today" : "/insights"}
+            className={styles.link}
           >
-            Каталог
-          </NavLink>
+            {isCatalogPage ? "Інсайт дня" : "Каталог"}
+          </Link>
         </nav>
       </div>
     </header>
