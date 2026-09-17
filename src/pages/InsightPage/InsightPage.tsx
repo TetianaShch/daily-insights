@@ -21,6 +21,12 @@ function InsightPage() {
 
   const isTodayPage = id === "today";
 
+  const formattedDate = selectedDate.toLocaleDateString("uk-UA", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
   const insight = isTodayPage
     ? getInsightByDate(selectedDate)
     : insights.find((insight) => insight.id === id);
@@ -66,7 +72,23 @@ function InsightPage() {
                 </Link>
               ))}
             </div>
-
+            {isTodayPage && (
+              <div className={styles.metaRow}>
+                <p className={styles.date}>Інсайт дня · {formattedDate}</p>
+                <span className={styles.saveIcon} aria-hidden="true">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                  >
+                    <path d="M6 4.5h12v15l-6-3.5-6 3.5v-15Z" />
+                  </svg>
+                </span>
+              </div>
+            )}
             <h1 className={styles.title}>{insight.title}</h1>
 
             <div className={styles.authorRow}>
