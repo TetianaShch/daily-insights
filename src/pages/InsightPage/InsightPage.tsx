@@ -16,6 +16,7 @@ import styles from "./InsightPage.module.css";
 
 function InsightPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [savedInsightIds, setSavedInsightIds] = useState<string[]>([]);
 
   const { id } = useParams();
 
@@ -43,6 +44,20 @@ function InsightPage() {
       </section>
     );
   }
+
+  const isSaved = savedInsightIds.includes(insight.id);
+
+  const handleSaveToggle = () => {
+    setSavedInsightIds((previousIds) => {
+      const nextIds = previousIds.includes(insight.id)
+        ? previousIds.filter((id) => id !== insight.id)
+        : [...previousIds, insight.id];
+
+      localStorage.setItem("savedInsights", JSON.stringify(nextIds));
+
+      return nextIds;
+    });
+  };
 
   const author = authors[insight.author];
 
@@ -75,18 +90,28 @@ function InsightPage() {
             {isTodayPage && (
               <div className={styles.metaRow}>
                 <p className={styles.date}>Інсайт дня · {formattedDate}</p>
-                <span className={styles.saveIcon} aria-hidden="true">
+                <button
+                  className={styles.saveButton}
+                  type="button"
+                  onClick={handleSaveToggle}
+                  aria-pressed={isSaved}
+                  aria-label={
+                    isSaved
+                      ? "Видалити інсайт із збережених"
+                      : "Зберегти інсайт"
+                  }
+                >
                   <svg
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
-                    fill="none"
+                    fill={isSaved ? "currentColor" : "none"}
                     stroke="currentColor"
                     strokeWidth="1.7"
                   >
                     <path d="M6 4.5h12v15l-6-3.5-6 3.5v-15Z" />
                   </svg>
-                </span>
+                </button>
               </div>
             )}
             <h1 className={styles.title}>{insight.title}</h1>

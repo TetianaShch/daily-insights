@@ -170,6 +170,26 @@
   text-transform: uppercase;
 }
 
+.saveButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 4px;
+  color: var(--color-text-muted);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.saveButton:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
 @media (min-width: 901px) {
   .dailyPage {
     max-width: 1200px;
