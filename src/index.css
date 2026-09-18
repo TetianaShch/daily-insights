@@ -31,6 +31,23 @@
   --transition-fast: 0.2s ease;
 }
 
+:root[data-theme="dark"] {
+  --color-background: #2b211c;
+  --color-surface: #352923;
+  --color-surface-soft: #46372f;
+
+  --color-text: #f5e9df;
+  --color-text-muted: #c2a38f;
+  --color-text-secondary: #dfcec1;
+
+  --color-accent: #a77d65;
+  --color-accent-dark: #e0b69d;
+
+  --color-border: #49372e;
+  --color-border-hover: #654b3e;
+  --color-highlight: #c8a88d;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -43,6 +60,9 @@ body {
   margin: 0;
   color: var(--color-text);
   background: var(--color-background);
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
 }
 
 button,

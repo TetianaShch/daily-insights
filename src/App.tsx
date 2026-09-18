@@ -1,13 +1,15 @@
 import "./App.css";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import InsightCatalog from "./pages/InsightCatalog/InsightCatalog";
-import InsightPage from "./pages/InsightPage/InsightPage";
 import SavedInsightsPage from "./pages/SavedInsightsPage/SavedInsightsPage";
 import { insights } from "./data/insights/index";
+
+const InsightPage = lazy(() => import("./pages/InsightPage/InsightPage"));
 
 function App() {
   return (
@@ -21,7 +23,14 @@ function App() {
             element={<InsightCatalog insights={insights} />}
           />
           <Route path="/saved" element={<SavedInsightsPage />} />
-          <Route path="/insight/:id" element={<InsightPage />} />
+          <Route
+            path="/insight/:id"
+            element={
+              <Suspense fallback={<p>Завантаження...</p>}>
+                <InsightPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </>
