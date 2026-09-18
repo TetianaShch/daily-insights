@@ -12,6 +12,9 @@ const Header = () => {
           Daily Insights
         </Link>
         <nav className={styles.navigation}>
+          <Link to="/saved" className={styles.link}>
+            Збережені
+          </Link>
           <Link
             to={isCatalogPage ? "/insight/today" : "/insights"}
             className={styles.link}

@@ -16,7 +16,11 @@ import styles from "./InsightPage.module.css";
 
 function InsightPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [savedInsightIds, setSavedInsightIds] = useState<string[]>([]);
+  const [savedInsightIds, setSavedInsightIds] = useState<string[]>(() => {
+    const savedIds = localStorage.getItem("savedInsights");
+
+    return savedIds ? JSON.parse(savedIds) : [];
+  });
 
   const { id } = useParams();
 
@@ -86,32 +90,30 @@ function InsightPage() {
                   {keyword}
                 </Link>
               ))}
+              <button
+                className={styles.saveButton}
+                type="button"
+                onClick={handleSaveToggle}
+                aria-pressed={isSaved}
+                aria-label={
+                  isSaved ? "Видалити інсайт із збережених" : "Зберегти інсайт"
+                }
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill={isSaved ? "currentColor" : "none"}
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                >
+                  <path d="M6 4.5h12v15l-6-3.5-6 3.5v-15Z" />
+                </svg>
+              </button>
             </div>
             {isTodayPage && (
               <div className={styles.metaRow}>
                 <p className={styles.date}>Інсайт дня · {formattedDate}</p>
-                <button
-                  className={styles.saveButton}
-                  type="button"
-                  onClick={handleSaveToggle}
-                  aria-pressed={isSaved}
-                  aria-label={
-                    isSaved
-                      ? "Видалити інсайт із збережених"
-                      : "Зберегти інсайт"
-                  }
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill={isSaved ? "currentColor" : "none"}
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                  >
-                    <path d="M6 4.5h12v15l-6-3.5-6 3.5v-15Z" />
-                  </svg>
-                </button>
               </div>
             )}
             <h1 className={styles.title}>{insight.title}</h1>

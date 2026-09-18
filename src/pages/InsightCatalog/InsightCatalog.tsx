@@ -7,9 +7,15 @@ import styles from "./InsightCatalog.module.css";
 
 type InsightCatalogProps = {
   insights: Insight[];
+  title?: string;
+  subtitle?: string;
 };
 
-function InsightCatalog({ insights }: InsightCatalogProps) {
+function InsightCatalog({
+  insights,
+  title = "Щоденні інсайти",
+  subtitle = "Наші інсайти, які можуть стати й твоїми.",
+}: InsightCatalogProps) {
   const [searchParams] = useSearchParams();
   const activeKeyword = searchParams.get("tag");
 
@@ -32,10 +38,8 @@ function InsightCatalog({ insights }: InsightCatalogProps) {
 
   return (
     <section className={styles.catalog}>
-      <h2 className={styles.title}>Щоденні інсайти</h2>
-      <p className={styles.subtitle}>
-        Наші інсайти, які можуть стати й твоїми.
-      </p>
+      <h2 className={styles.title}>{title}</h2>
+      <p className={styles.subtitle}>{subtitle}</p>
       <ul className={styles.list}>
         {visibleInsights.map((insight) => (
           <li key={insight.id} className={styles.card}>

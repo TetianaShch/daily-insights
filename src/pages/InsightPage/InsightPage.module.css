@@ -176,6 +176,7 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 4px;
+  margin-left: auto;
   color: var(--color-text-muted);
   background-color: transparent;
   border: none;

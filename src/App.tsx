@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import InsightCatalog from "./pages/InsightCatalog/InsightCatalog";
 import InsightPage from "./pages/InsightPage/InsightPage";
+import SavedInsightsPage from "./pages/SavedInsightsPage/SavedInsightsPage";
 import { insights } from "./data/insights/index";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             path="/insights"
             element={<InsightCatalog insights={insights} />}
           />
+          <Route path="/saved" element={<SavedInsightsPage />} />
           <Route path="/insight/:id" element={<InsightPage />} />
         </Route>
       </Routes>
