@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import FlowerIcon from "../../FlowerIcon/FlowerIcon";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -23,6 +24,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
+          <FlowerIcon />
           Daily Insights
         </Link>
         <nav className={styles.navigation}>

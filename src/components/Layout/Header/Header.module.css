@@ -20,7 +20,10 @@
 }
 
 .logo {
-  color: var(--color-accent-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
   font-family: var(--font-title);
   font-size: 24px;
   line-height: 1;
@@ -32,7 +35,7 @@
 }
 
 .logo:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   transform: translateY(-2px);
 }
 
