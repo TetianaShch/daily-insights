@@ -60,6 +60,7 @@
 
 html {
   font-family: var(--font-body), serif;
+  scrollbar-gutter: stable;
 }
 
 body {

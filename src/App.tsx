@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/insight/:id"
             element={
-              <Suspense fallback={<p>Завантаження...</p>}>
+              <Suspense fallback={null}>
                 <InsightPage />
               </Suspense>
             }

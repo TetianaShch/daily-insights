@@ -45,6 +45,12 @@
   animation: cardReveal 0.4s ease-out;
 }
 
+.cardContent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
 .card:hover {
   transform: translateY(-3px);
   border-color: var(--color-border-hover);
@@ -77,6 +83,8 @@
 .activeKeyword {
   display: inline-block;
   padding: 7px 12px;
+  position: relative;
+  z-index: 1;
   border-radius: var(--radius-pill);
   background: var(--color-surface-soft);
 
