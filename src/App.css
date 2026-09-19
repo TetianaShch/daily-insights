@@ -1,5 +1,7 @@
 .app {
-  width: 100%;
+  flex: 1;
+  display: flex;
+  min-height: 0;
 }
 
 h1 {

@@ -48,6 +48,12 @@
   --color-highlight: #c8a88d;
 }
 
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   box-sizing: border-box;
 }
